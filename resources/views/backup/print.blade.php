@@ -129,18 +129,10 @@
                 <div>
                     <img src="{{ asset('img/lp3i.png') }}" alt="" width="30%" style="text-align: center">
                     <h2>DAFTAR RIWAYAT HIDUP</h2>
-                    @php
-                        $programName = $applicant->program ? preg_replace('/\s*\(.*?\)/', '', $applicant->program) : '_______________';
-                    @endphp
-
-                    @if ($programName === "D3 Manajemen Keuangan Perbankan" || $programName === "D3 Marketing Management" || $programName === "D3 Manajemen Pemasaran")
-                        <p>Mahasiswa Politeknik LP3I Kampus Tasikmalaya</p>
-                    @else
-                        <p>Mahasiswa Politeknik LP3I</p>
-                    @endif
-                    <p>Program Studi {{ $applicant->program == null ? '_______________' : preg_replace('/\s*\(.*?\)/', '', $applicant->program) }}</p>
+                    <p>Mahasiswa Politeknik LP3I Kampus Tasikmalaya</p>
+                    <p>Program Studi {{ $applicant->program == null ? '_______________' : $applicant->program }}</p>
                 </div>
-                <!-- @if ($user->avatar)
+                @if ($user->avatar)
                     <img src="https://uploadhub.politekniklp3i-tasikmalaya.ac.id/download?identity={{ $user->identity }}&filename={{ $user->identity }}-{{ $user->avatar }}"
                         alt="Avatar" width="110px">
                 @else
@@ -148,7 +140,7 @@
                         style="border: 1px dotted black; height: 180px; width: 420px;display: flex;justify-content: center;align-items:center">
                         <p>Pas foto 4x3</p>
                     </div>
-                @endif -->
+                @endif
             </header>
             <hr style="margin-top: 10px;">
             <h3>Biodata Mahasiswa</h3>
@@ -272,18 +264,9 @@
                 <div>
                     <img src="{{ asset('img/lp3i.png') }}" alt="" width="30%" style="text-align: center">
                     <h2>SEKILAS TENTANG ANDA</h2>
-                    @php
-                        $programName = $applicant->program ? preg_replace('/\s*\(.*?\)/', '', $applicant->program) : '_______________';
-                    @endphp
-
-                    @if ($programName === "D3 Manajemen Keuangan Perbankan" || $programName === "D3 Marketing Management" || $programName === "D3 Manajemen Pemasaran")
-                        <p>Mahasiswa Politeknik LP3I Kampus Tasikmalaya</p>
-                    @else
-                        <p>Mahasiswa Politeknik LP3I</p>
-                    @endif
-                    <!-- <p>Program Studi {{ $applicant->program == null ? '_______________' : $applicant->program }}
-                        ({{ $applicant->programtype ? $applicant->programtype->name : 'Tidak diketahui' }})</p> -->
-                    <p>Program Studi {{ $applicant->program == null ? '_______________' : preg_replace('/\s*\(.*?\)/', '', $applicant->program) }}</p>
+                    <p>Mahasiswa Politeknik LP3I Kampus Tasikmalaya</p>
+                    <p>Program Studi {{ $applicant->program == null ? '_______________' : $applicant->program }}
+                        ({{ $applicant->programtype ? $applicant->programtype->name : 'Tidak diketahui' }})</p>
                     <p>
                         <span>Relasi:
                             {{ $applicant->relation == null ? '_______________' : $applicant->relation }}</span> |
@@ -388,41 +371,9 @@
                         <p>__________________________________</p>
                     @endif
                 </div>
-                <div style="margin-top: 10px; text-align: center; position: relative;">
+                <div style="margin-top: 10px;text-align:center">
                     <p>Tasikmalaya, <span class="signature"></span></p>
                     <p>Panitia Penerima Mahasiswa Baru</p><br /><br />
-                    @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '6282215614238')
-                        <img src="{{ asset('ttd/ahyar.png') }}" alt="" 
-                            style="width: 65px; position: absolute; top: 60px; left: 50%; transform: translateX(-50%); opacity: 0.8;">
-                    @endif
-                    @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '6282127356645')
-                        <img src="{{ asset('ttd/beni.png') }}" alt="" 
-                            style="width: 180px; position: absolute; top: 30px; left: 45%; transform: translateX(-50%); opacity: 0.8;">
-                    @endif
-                    @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '62895411878079')
-                        <img src="{{ asset('ttd/dinda.png') }}" alt="" 
-                            style="width: 180px; position: absolute; top: 43px; left: 45%; transform: translateX(-50%); opacity: 0.8;">
-                    @endif
-                    @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '6285141621657')
-                        <img src="{{ asset('ttd/fikri.png') }}" alt="" 
-                            style="width: 80px; position: absolute; top: 43px; left: 45%; transform: translateX(-50%); opacity: 0.8;">
-                    @endif
-                    @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '6282127951392')
-                        <img src="{{ asset('ttd/lilip.png') }}" alt="" 
-                            style="width: 80px; position: absolute; top: 70px; left: 45%; transform: translateX(-50%); opacity: 0.8;">
-                    @endif
-                    @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '6282118936775')
-                        <img src="{{ asset('ttd/ratna.png') }}" alt="" 
-                            style="width: 190px; position: absolute; top: 30px; left: 50%; transform: translateX(-50%); opacity: 0.8;">
-                    @endif
-                    @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '6281947776090')
-                        <img src="{{ asset('ttd/sindiana.png') }}" alt="" 
-                            style="width: 100px; position: absolute; top: 38px; left: 50%; transform: translateX(-50%); opacity: 0.8;">
-                    @endif
-                    @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '6281220662033')
-                        <img src="{{ asset('ttd/yanti.png') }}" alt="" 
-                            style="width: 150px; position: absolute; top: 45px; left: 50%; transform: translateX(-50%); opacity: 0.8;">
-                    @endif
                     <p>__________________________________</p>
                     <p>Tanda Tangan & Nama Jelas</p>
                 </div>
@@ -432,28 +383,12 @@
         <div class="page">
             <header style="display: flex; justify-content: start; align-items: start">
                 <div>
-                    @php
-                        $programName = $applicant->program ? preg_replace('/\s*\(.*?\)/', '', $applicant->program) : '_______________';
-                    @endphp
-
-                    @if ($programName === "D3 Manajemen Keuangan Perbankan" || $programName === "D3 Marketing Management" || $programName === "D3 Manajemen Pemasaran")
-                        <img src="{{ asset('img/lp3i.png') }}" alt="" width="30%" style="text-align: center">
-                    @else
-                        <img src="{{ asset('img/lp3i-pol.png') }}" alt="" width="10%" style="text-align: center">
-                    @endif
+                    <img src="{{ asset('img/lp3i.png') }}" alt="" width="30%" style="text-align: center">
                     <h2>FORMULIR PENDAFTARAN<br/>MAHASISWA BARU T.A {{ $applicant->pmb }}/{{ $applicant->pmb + 1 }}</h2>
-                    @php
-                        $programName = $applicant->program ? preg_replace('/\s*\(.*?\)/', '', $applicant->program) : '_______________';
-                    @endphp
-
-                    @if ($programName === "D3 Manajemen Keuangan Perbankan" || $programName === "D3 Marketing Management" || $programName === "D3 Manajemen Pemasaran")
-                        <p>Mahasiswa Politeknik LP3I Kampus Tasikmalaya</p>
-                    @else
-                        <p>Mahasiswa Politeknik LP3I</p>
-                    @endif
+                    <p>Mahasiswa Politeknik LP3I Kampus Tasikmalaya</p>
                 </div>
 
-                <!-- @if ($user->avatar)
+                @if ($user->avatar)
                     <img src="https://uploadhub.politekniklp3i-tasikmalaya.ac.id/download?identity={{ $user->identity }}&filename={{ $user->identity }}-{{ $user->avatar }}"
                         alt="Avatar" width="110px">
                 @else
@@ -461,17 +396,17 @@
                         style="border: 1px dotted black; height: 180px; width: 420px;display: flex;justify-content: center;align-items:center">
                         <p>Pas foto 4x3</p>
                     </div>
-                @endif -->
+                @endif
             </header>
         
             <hr style="margin-top: 10px;">
             <table style="margin-top: 10px">
-                <!-- <tr>
+                <tr>
                     <td style="width: 200px;">No. Pendaftaran</td>
                     <td>:</td>
                     <td>____________________________________</td>
-                </tr> -->
-                <!-- <tr>
+                </tr>
+                <tr>
                     <td style="width: 200px;">Status Aplikan</td>
                     <td>:</td>
                     <td>
@@ -479,8 +414,8 @@
                         <span>D {{ $applicant->is_daftar == null ? '[  ]' : ' √ ' }}</span> |
                         <span>R {{ $applicant->is_register == null ? '[  ]' : ' √ ' }}</span>
                     </td>
-                </tr> -->
-                <!-- <tr>
+                </tr>
+                <tr>
                     <td style="width: 200px;">No. Kwitansi Pendaftaran</td>
                     <td>:</td>
                     @if ($enrollment)
@@ -488,13 +423,12 @@
                     @else
                         <td>________________________</td>
                     @endif
-                </tr> -->
+                </tr>
                 <tr>
                     <td style="width: 200px;">Program Studi</td>
                     <td>:</td>
-                    <!-- <td>{{ $applicant->program == null ? '_______________' : $applicant->program }}
-                        ({{ $applicant->programtype ? $applicant->programtype->name : 'Tidak diketahui' }})</td> -->
-                    <td>{{ $applicant->program == null ? '_______________' : preg_replace('/\s*\(.*?\)/', '', $applicant->program) }}</td>
+                    <td>{{ $applicant->program == null ? '_______________' : $applicant->program }}
+                        ({{ $applicant->programtype ? $applicant->programtype->name : 'Tidak diketahui' }})</td>
                 </tr>
             </table>
             <hr style="margin-top: 10px;">
@@ -555,11 +489,11 @@
                         <span>{{ $applicant->email == null ? '_______________' : $applicant->email }}</span>
                     </td>
                 </tr>
-                <!-- <tr>
+                <tr>
                     <td style="width: 200px;">*Status Pernikahan</td>
                     <td>:</td>
                     <td>Menikah / Belum Menikah</td>
-                </tr> -->
+                </tr>
                 <tr>
                     <td style="width: 200px;">Agama</td>
                     <td>:</td>
@@ -575,20 +509,20 @@
                     <td>:</td>
                     <td>{{ $applicant->address == null ? '_______________' : $applicant->address }}</td>
                 </tr>
-                <!-- <tr>
+                <tr>
                     <td style="width: 200px;">*Status Alamat</td>
                     <td>:</td>
                     <td>Rumah Orang Tua / Rumah Keluarga / Kontrak / Kost</td>
-                </tr> -->
+                </tr>
             </table>
             <hr style="margin-top: 10px;">
             <h3>BIODATA ORANG TUA</h3>
             <table style="margin-top: 10px">
-                <!-- <tr>
+                <tr>
                     <td style="width: 200px;">KTP Orang Tua</td>
                     <td>:</td>
                     <td>______________________________ (Ayah / Ibu)</td>
-                </tr> -->
+                </tr>
                 <tr>
                     <td style="width: 200px;">Nama Ayah</td>
                     <td>:</td>
@@ -607,11 +541,11 @@
                         <span>{{ $mother->phone == null ? '__________________' : $mother->phone }}</span>
                     </td>
                 </tr>
-                <!-- <tr>
+                <tr>
                     <td style="width: 200px;">Alamat</td>
                     <td>:</td>
                     <td>{{ $father->address == null ? '_______________' : $father->address }}</td>
-                </tr> -->
+                </tr>
                 <tr>
                     <td style="width: 200px;">Pekerjaan Ayah / Ibu</td>
                     <td>:</td>
@@ -620,94 +554,20 @@
                         <span>{{ $mother->job == null ? '_______________' : $mother->job }}</span>
                     </td>
                 </tr>
-                <!-- <tr>
+                <tr>
                     <td style="width: 200px;">Pendidikan Ayah / Ibu</td>
                     <td>:</td>
                     <td>
                         <span>{{ $father->education == null ? '_______________' : $father->education }}</span> /
                         <span>{{ $mother->education == null ? '_______________' : $mother->education }}</span>
                     </td>
-                </tr> -->
+                </tr>
             </table>
-            <hr style="margin-top: 10px;">
-            <div style="display: flex; justify-content:space-between;gap:30px" style="margin-top: 15px">
-                <div style="margin-top: 0px">
-                    <h3>RIWAYAT PENDIDIKAN</h3>
-                    <table style="margin-top: 10px">
-                        <tr>
-                            <td style="width: 200px;">Asal SMA / SMK. Sederajat</td>
-                            <td>:</td>
-                            <td>{{ $applicant->school == null ? '_______________' : $applicant->SchoolApplicant->name }}</td>
-                        </tr>
-                        <tr>
-                            <td style="width: 200px;">Jurusan</td>
-                            <td>:</td>
-                            <td>{{ $applicant->major == null ? '_______________' : $applicant->major }}</td>
-                        </tr>
-                        <tr>
-                            <td style="width: 200px;">Tahun Lulus</td>
-                            <td>:</td>
-                            <td>{{ $applicant->year == null ? '_______________' : $applicant->year }}</td>
-                        </tr>
-                        <!-- <tr>
-                            <td style="width: 200px;">Alamat Sekolah</td>
-                            <td>:</td>
-                            <td>______________________________</td>
-                        </tr> -->
-                    </table>
-                </div>
-                @php
-                    $programName = $applicant->program ? preg_replace('/\s*\(.*?\)/', '', $applicant->program) : '_______________';
-                @endphp
-
-                @if ($programName === "D3 Manajemen Keuangan Perbankan" || $programName === "D3 Marketing Management" || $programName === "D3 Manajemen Pemasaran")
-                    <div style="margin-top: 10px;text-align:center">
-                        <!-- <p>Tasikmalaya, <span class="signature"></span></p> -->
-                        <p>Tasikmalaya, {{ $applicant->date_of_birth == null ? '_______________' : \Carbon\Carbon::parse($applicant->date_of_birth)->format('d ') . $monthsInIndonesian[\Carbon\Carbon::parse($applicant->date_of_birth)->format('m')] }} 2024</p>
-                        <p>Panitia Penerima Mahasiswa Baru</p><br /><br />
-                        @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '6282215614238')
-                            <img src="{{ asset('ttd/ahyar.png') }}" alt="" 
-                                style="width: 65px; position: absolute; bottom:80px;  left: 76%; transform: translateX(-50%); opacity: 0.8;">
-                        @endif
-                        @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '6282127356645')
-                            <img src="{{ asset('ttd/beni.png') }}" alt="" 
-                                style="width: 180px; position: absolute; bottom: 57px; left: 76%; transform: translateX(-50%); opacity: 0.8;">
-                        @endif
-                        @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '62895411878079')
-                            <img src="{{ asset('ttd/dinda.png') }}" alt="" 
-                                style="width: 180px; position: absolute; bottom: 80px; left: 76%; transform: translateX(-50%); opacity: 0.8;">
-                        @endif
-                        @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '6285141621657')
-                            <img src="{{ asset('ttd/fikri.png') }}" alt="" 
-                                style="width: 80px; position: absolute; bottom: 53px; left: 76%; transform: translateX(-50%); opacity: 0.8;">
-                        @endif
-                        @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '6282127951392')
-                            <img src="{{ asset('ttd/lilip.png') }}" alt="" 
-                                style="width: 80px; position: absolute; bottom: 100px; left: 76%; transform: translateX(-50%); opacity: 0.8;">
-                        @endif
-                        @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '6282118936775')
-                            <img src="{{ asset('ttd/ratna.png') }}" alt="" 
-                                style="width: 190px; position: absolute; bottom: 50px; left: 76%; transform: translateX(-50%); opacity: 0.8;">
-                        @endif
-                        @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '6281947776090')
-                            <img src="{{ asset('ttd/sindiana.png') }}" alt="" 
-                                style="width: 100px; position: absolute; bottom: 25px; left: 76%; transform: translateX(-50%); opacity: 0.8;">
-                        @endif
-                        @if (Auth::check() && Auth::user()->role == 'P' && Auth::user()->identity == '6281220662033')
-                            <img src="{{ asset('ttd/yanti.png') }}" alt="" 
-                                style="width: 150px; position: absolute; bottom: 30px; left: 76%; transform: translateX(-50%); opacity: 0.8;">
-                        @endif
-                        <p>__________________________________</p>
-                        <p>Tanda Tangan & Nama Jelas</p>
-                    </div>
-                @else
-                @endif
-            </div>
         </div>
 
         <div class="page">
 
-            <!-- <h3>RIWAYAT PENDIDIKAN</h3>
+            <h3>RIWAYAT PENDIDIKAN</h3>
             <table style="margin-top: 10px">
                 <tr>
                     <td style="width: 200px;">Asal SMA / SMK. Sederajat</td>
@@ -729,7 +589,7 @@
                     <td>:</td>
                     <td>______________________________</td>
                 </tr>
-            </table> -->
+            </table>
             <p style="margin-top: 30px">Harap diisi jika mahasiswa pindahan PTS lain</p>
             <table style="margin-top: 10px">
                 <tr>
